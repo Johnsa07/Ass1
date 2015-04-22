@@ -36,7 +36,7 @@ PrintWriter out= response.getWriter();
 String uname = request.getParameter("uname");
 String pw = request.getParameter("pw");
 try {
-    if (uname.equalsIgnoreCase("admin")&&pw.equalsIgnoreCase("admin1")){
+    if (pw.equalsIgnoreCase("admin")){
         HttpSession session= request.getSession();
         session.setAttribute("user", uname);
             RequestDispatcher rd = request.getRequestDispatcher("Second");
@@ -44,7 +44,7 @@ try {
     } else {
             RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
             rd.include(request, response);
-         
+            out.println("Wrong Password!!");
     }
 } finally { 
     out.close();
